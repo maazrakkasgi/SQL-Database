@@ -68,4 +68,74 @@ SELECT * FROM student_dtl WHERE sid=3;
   SELECT * FROM student_dtl
   WHERE school='bldea'
   HAVING (age =21) OR m1>=90 AND m2>=90 AND m3>=90
+  
+   -- write a query maximum scored by student marks1 depict this column as highest marks_1.
+  
+  SELECT MAX(m1) AS highest_m1
+  FROM student_dtl; 
+  
+  -- write a query total number of students studying in bldea 
+  
+  SELECT COUNT(sid) AS count_stu
+  FROM student_dtl
+  WHERE college='bldea'
+  
+  -- waq minimum  of marks2 as min_marks2 from student table.
+  
+  SELECT MIN(m2) AS min_m2
+  FROM student_dtl; 
+  
+ -- waq the average marks3 as avg_marks3 from student table
+ SELECT AVG(m3) AS avg_marks3
+ FROM student_dtl;
+ 
+ 
+ 
+ -- write a query total marks1 scored by student who are  not studying in bldea
+  
+  SELECT SUM(m1) AS total_marks
+  FROM student_dtl
+  WHERE college <> 'bldea';
+ 
+ 
+ 
+ -- waq to print the details of all students who have scored distiniction (more than 70 in all subjects)
+ 
+ SELECT *  FROM student_dtl
+ WHERE m1>70 AND m2>70 AND m3>70; 
+ 
+ 
+ 
+ /* waq to insert new record as shown below 
+   name is aishwariya
+   sid is 5
+   school is rvce
+   marks1 97
+   marks2 64
+   marks3 57
+   father name mahaveer
+   mother name pushpa
+   phone  8889966644
+   age 21
+   class 7th sem
+   */
+   INSERT INTO student_dtl(sname,sid,school,m1,m2,m3,fname,mname,phone,age,class)
+   VALUES('aishwarya',5,'rvce',97,64,57,'mahaveer','pushpa', 8889966644,21,'7th sem');
+   
+   -- write a query to change the name of column school to college 
+   
+   ALTER TABLE student_dtl
+   CHANGE COLUMN school college VARCHAR(60); 
+   
+   DESC student_dtl;
+   
+   
+  --  waq to modify the name of columns by preciding every column with stud_sid
+  
+  ALTER TABLE student_dtl
+  CHANGE COLUMN sid stud_sid INT;
+  
+  
+   DESC student_dtl;
+ 
  
